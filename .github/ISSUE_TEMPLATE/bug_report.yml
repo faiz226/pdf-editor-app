@@ -1,0 +1,51 @@
+name: Bug report
+description: Something doesn't work as expected
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! **Please don't attach PDFs that contain personal or private information.**
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: Describe the problem, and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open a PDF
+        2. Tap Sign and place a signature
+        3. Save
+        4. The signature is in the wrong place
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Where are you using it?
+      options:
+        - Android app (APK)
+        - Web app on a phone
+        - Web app on a computer
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device, OS and browser
+      placeholder: e.g. Redmi Note 12, Android 14, Chrome 131
+  - type: input
+    id: version
+    attributes:
+      label: App version
+      placeholder: e.g. 1.0.0 (from the APK file name or the release you downloaded)
+  - type: textarea
+    id: extra
+    attributes:
+      label: Screenshots, sample file or console errors
+      description: Drag files here. On a computer, errors from the browser console (F12) help a lot.

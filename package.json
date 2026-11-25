@@ -1,0 +1,35 @@
+{
+  "name": "pdf-editor-app",
+  "version": "1.0.0",
+  "description": "Free, open-source PDF editor for Android and the web. Edit, sign, merge, split, compress and convert PDFs offline. Files never leave your device.",
+  "private": true,
+  "type": "module",
+  "author": "Krishnakant Nagina",
+  "license": "MIT",
+  "homepage": "https://krishnakantnagina.github.io/pdf-editor-app/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krishnakantnagina/pdf-editor-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/krishnakantnagina/pdf-editor-app/issues"
+  },
+  "keywords": ["pdf", "pdf-editor", "android", "apk", "pwa", "capacitor", "offline", "sign-pdf", "merge-pdf", "compress-pdf"],
+  "scripts": {
+    "start": "npx --yes serve -l 3000 .",
+    "build:web": "node scripts/build-web.mjs",
+    "android:sync": "npm run build:web && npx cap sync android",
+    "android:open": "npx cap open android",
+    "android:build": "npm run android:sync && cd android && ./gradlew assembleDebug"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.6.0",
+    "@capacitor/app": "^8.1.2",
+    "@capacitor/core": "^8.6.0",
+    "@capacitor/filesystem": "^8.1.5",
+    "@capacitor/share": "^8.0.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.6.2"
+  }
+}

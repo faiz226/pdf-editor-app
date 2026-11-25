@@ -1,0 +1,13 @@
+* text=auto eol=lf
+*.bat text eol=crlf
+*.png binary
+*.jpg binary
+*.jar binary
+*.wasm binary
+*.icc binary
+*.bcmap binary
+*.pfb binary
+*.ttf binary
+*.keystore binary
+# Keep vendored libraries out of GitHub's language stats
+lib/** linguist-vendored

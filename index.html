@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1b1a17">
+  <meta name="description" content="Edit, sign, merge, split, compress and convert PDFs on your phone. Files never leave your device.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="PDF Editor">
+  <title>PDF Editor: free, private PDF editor for Android and the web</title>
+  <link rel="canonical" href="https://krishnakantnagina.github.io/pdf-editor-app/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PDF Editor: free, private PDF editor">
+  <meta property="og:description" content="Edit, sign, merge, split, compress and convert PDFs on your phone. 100% offline. Files never leave your device.">
+  <meta property="og:url" content="https://krishnakantnagina.github.io/pdf-editor-app/">
+  <meta property="og:image" content="https://raw.githubusercontent.com/krishnakantnagina/pdf-editor-app/main/docs/social-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <button class="icon-btn" id="btnMenu" aria-label="Menu"></button>
+    <div class="doc-title"><span class="brand">PDF Editor</span><span id="docName"></span></div>
+    <div class="top-actions">
+      <button class="icon-btn" id="btnUndo" aria-label="Undo" disabled></button>
+      <button class="icon-btn" id="btnRedo" aria-label="Redo" disabled></button>
+      <button class="btn primary" id="btnSave" disabled>Save</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="viewHome" class="view active">
+      <div class="hero">
+        <div class="hero-mark" aria-hidden="true"></div>
+        <h1>Edit PDFs right on your phone.</h1>
+        <p>Your files are processed on this device and are never uploaded.</p>
+        <div class="hero-actions">
+          <button class="btn primary big" id="homeOpen">Open PDF</button>
+          <button class="btn big" id="homeImages">Images → PDF</button>
+          <button class="btn ghost" id="homeBlank">Start with a blank page</button>
+        </div>
+        <ul class="feature-list">
+          <li>Add text</li><li>Sign</li><li>Draw &amp; highlight</li><li>Shapes &amp; stamps</li>
+          <li>Whiteout</li><li>Secure redact</li><li>Merge</li><li>Split</li><li>Reorder &amp; rotate</li>
+          <li>Compress</li><li>PDF → JPG/PNG</li><li>Fill forms</li><li>Watermark</li><li>Page numbers</li>
+          <li>Extract text</li><li>Unlock</li><li>Edit details</li>
+        </ul>
+        <p class="drop-hint">On a computer you can also drag and drop files here.</p>
+      </div>
+    </section>
+
+    <section id="viewEdit" class="view">
+      <div id="viewer" class="viewer"></div>
+      <div class="zoom-pill">
+        <button id="zoomOut" aria-label="Zoom out">−</button>
+        <span id="zoomLabel">100%</span>
+        <button id="zoomIn" aria-label="Zoom in">+</button>
+      </div>
+    </section>
+
+    <section id="viewPages" class="view">
+      <div class="chips" id="pageActions"></div>
+      <p class="hint" id="pagesHint">Tap pages to select them, then pick an action.</p>
+      <div id="thumbGrid" class="thumb-grid"></div>
+    </section>
+
+    <section id="viewTools" class="view">
+      <div id="toolCards" class="tool-cards"></div>
+    </section>
+  </main>
+
+  <div id="selBar" class="selbar hidden"></div>
+  <div id="toolOpts" class="tool-opts hidden"></div>
+  <nav id="toolbar" class="toolbar hidden"></nav>
+  <nav id="tabs" class="tabs">
+    <button data-view="edit" class="tab" disabled><span class="ti" data-icon="pen"></span>Edit</button>
+    <button data-view="pages" class="tab" disabled><span class="ti" data-icon="pages"></span>Pages</button>
+    <button data-view="tools" class="tab"><span class="ti" data-icon="grid"></span>Tools</button>
+  </nav>
+
+  <div id="sheetBackdrop" class="sheet-backdrop hidden">
+    <div id="sheet" class="sheet" role="dialog" aria-modal="true">
+      <div class="sheet-head"><h2 id="sheetTitle"></h2><button class="icon-btn" id="sheetClose" aria-label="Close"></button></div>
+      <div id="sheetBody" class="sheet-body"></div>
+      <div id="sheetFoot" class="sheet-foot"></div>
+    </div>
+  </div>
+
+  <div id="busy" class="busy hidden"><div class="spinner"></div><p id="busyText">Working…</p></div>
+  <div id="toast" class="toast"></div>
+  <div id="dropZone" class="drop-zone hidden">Drop PDFs or images</div>
+
+  <input type="file" id="filePdf" accept="application/pdf,.pdf" multiple hidden>
+  <input type="file" id="fileImg" accept="image/*" multiple hidden>
+
+  <script src="lib/pdf-lib.min.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
